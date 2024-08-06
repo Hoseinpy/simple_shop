@@ -12,3 +12,5 @@ class Items(models.Model):
         return f'{self.name}'
 
 
+class Slider(models.Model):
+    picture = models.ImageField(upload_to='img/', null=True)

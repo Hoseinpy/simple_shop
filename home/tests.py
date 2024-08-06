@@ -1,6 +1,5 @@
-from rest_framework.test import APITestCase
 from django.urls import reverse
-from .models import Items
+from rest_framework.test import APITestCase
 
 
 class TestHomeApp(APITestCase):
@@ -10,8 +9,7 @@ class TestHomeApp(APITestCase):
 
         self.assertEqual(response.status_code, 200)
 
-    def test_get_items_detail(self):
-        new_obj = Items.objects.create(name='jhzsdfbcv', description='hkjdbfahjk', price=10000)
-        response = self.client.get(reverse('item_detail', args=[new_obj.name]))
+    def test_get_slider_list(self):
+        response = self.client.get(reverse('slider'))
 
         self.assertEqual(response.status_code, 200)

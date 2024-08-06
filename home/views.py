@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .serializers import ItemsSerializer, ItemsDetailSerializer
-from .models import Items
+from .serializers import ItemsSerializer, SliderSerializer
+from .models import Items, Slider
 
 
 class ItemList(generics.ListAPIView):
@@ -8,8 +8,6 @@ class ItemList(generics.ListAPIView):
     queryset = Items.objects.filter(is_active=True)
 
 
-class ItemDetail(generics.RetrieveAPIView):
-    serializer_class = ItemsDetailSerializer
-    queryset = Items.objects.filter(is_active=True)
-    lookup_field = 'name'
-
+class SliderList(generics.ListAPIView):
+    serializer_class = SliderSerializer
+    queryset = Slider.objects.all()
