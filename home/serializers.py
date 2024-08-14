@@ -15,3 +15,11 @@ class SliderSerializer(serializers.ModelSerializer):
         fields = ['picture']
 
 
+
+class AddToCartSerializer(serializers.Serializer):
+    item_id = serializers.IntegerField()
+    quantity = serializers.IntegerField()
+
+
+class DeleteFromCartSerializer(serializers.Serializer):
+    cart_id = serializers.IntegerField()

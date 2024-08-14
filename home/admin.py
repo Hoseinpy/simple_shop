@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import Items, Slider
+from .models import Items, Slider, CartModel
 
-admin.site.register(Items)
-admin.site.register(Slider)
+@admin.register(Items)
+class ItemsAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'price']
